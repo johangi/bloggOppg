@@ -4,9 +4,15 @@ const mongoose = require('mongoose');
 const errorMssg = { error: 'No such blog' };
 
 const getBlogs = async (req, res) => {
-    const user_id = req.user._id;
+    const blogs = await Blog.find({}).sort({ createdAt: -1 });
 
-    const blogs = await Blog.find({ user_id }).sort({ createdAt: -1 });
+    res.status(200).json(blogs);
+}
+
+const getBlogsByAuthor = async (req, res) => {
+    const author = req.body.author;
+    
+    const blogs = await Blog.find({ author }).sort({ createdAt: -1 });
 
     res.status(200).json(blogs);
 }
@@ -61,6 +67,7 @@ const updateBlog = async (req, res) => {
 
 module.exports = {
     getBlogs,
+    getBlogsByAuthor,
     createBlog,
     deleteBlog,
     updateBlog

@@ -45,7 +45,7 @@ header a {
 }
 
 .workout-details {
-  background: #fff;
+  background: black;
   border-radius: 4px;
   margin: 20px auto;
   padding: 20px;
@@ -56,13 +56,13 @@ header a {
 .workout-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: var(--primary);
+  color: orange;
 }
 
 .workout-details p {
   margin: 0;
   font-size: 0.9em;
-  color: #555;
+  color: white;
 }
 
 .workout-details span {
@@ -168,4 +168,8 @@ form.login {
 
 .white {
   color: white;
+}
+
+.navElement {
+  margin-right: 20px;
 }

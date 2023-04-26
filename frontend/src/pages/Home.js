@@ -8,7 +8,7 @@ import BlogForm from "../components/BlogForm";
 
 const Home = () => {
     const { user } = useAuthContext();
-    const { blogs, dispatch } = useBlogsContext()
+    const { blogs, dispatch } = useBlogsContext();
 
     useEffect(() => {
         const fetchBlogs = async () => {

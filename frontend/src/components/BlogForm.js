@@ -8,7 +8,7 @@ const BlogForm = () => {
 
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
-    const [author, setAuthor] = useState('');
+    // const [author, setAuthor] = useState('');
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
 
@@ -20,6 +20,7 @@ const BlogForm = () => {
             return;
         }
 
+        const author = user.username;
         const blog = { title, text, author };
 
         const response = await fetch('/api/blogs/', {
@@ -40,7 +41,7 @@ const BlogForm = () => {
         if (response.ok) {
             setTitle('');
             setText('');
-            setAuthor('');
+            // setAuthor('');
             setError(null);
             setEmptyFields([])
             console.log('new blog added', json);
@@ -55,8 +56,8 @@ const BlogForm = () => {
             <input type="text" onChange={(e) => setTitle(e.target.value)} value={title} className={emptyFields.includes('title') ? 'error' : ''} />
             <label>Text:</label>
             <input type="text" onChange={(e) => setText(e.target.value)} value={text} className={emptyFields.includes('text') ? 'error' : ''} />
-            <label>Author:</label>
-            <input type="text" onChange={(e) => setAuthor(e.target.value)} value={author} className={emptyFields.includes('author') ? 'error' : ''} />
+            {/* <label>Author:</label>
+            <input type="text" onChange={(e) => setAuthor(e.target.value)} value={author} className={emptyFields.includes('author') ? 'error' : ''} /> */}
             <button>Add Blog</button>
             {error && <div className="error">{error}</div>}
         </form>

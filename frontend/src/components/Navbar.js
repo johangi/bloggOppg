@@ -16,6 +16,7 @@ const Navbar = () => {
                     <h1 className="bloghub">Blog <span className="hub">Hub</span></h1>
                 </Link>
                 <nav>
+                    {user && <Link to="/maxepusen"><span className="white navElement">Maxepusen</span></Link>}
                     {user && (
                         <div>
                             <span className="white">{user.email}</span>

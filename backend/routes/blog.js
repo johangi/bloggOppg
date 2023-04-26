@@ -1,7 +1,7 @@
 const express = require('express');
 
 // controller functions
-const { getBlogs, createBlog, deleteBlog, updateBlog } = require('../controllers/blogsController');
+const { getBlogs, getBlogsByAuthor, createBlog, deleteBlog, updateBlog } = require('../controllers/blogsController');
 
 const requireAuth = require('../middleware/requireAuth');
 
@@ -10,6 +10,8 @@ const router = express.Router();
 router.use(requireAuth);
 
 router.get('/', getBlogs);
+
+router.post('/', getBlogsByAuthor);
 
 router.post('/', createBlog);
 
